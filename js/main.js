@@ -16,7 +16,7 @@ for (let i = 0; i < images.length; i++) {
         <img src="./img/${images[i]}" alt="Immagine ${i + 1}" />
         </div>`;
     //aggiungo un thumbnail
-    thumbnails.innerHTML += `<div class="thumbnail">
+    thumbnails.innerHTML += `<div class="thumbnail ">
         <img src="./img/${images[i]}" alt="Immagine ${
       i + 1
     }" class="selected" />
@@ -25,7 +25,7 @@ for (let i = 0; i < images.length; i++) {
     items.innerHTML += `<div class="item">
         <img src="./img/${images[i]}" alt="Immagine ${i + 1}" />
         </div>`;
-    thumbnails.innerHTML += `<div class="thumbnail">
+    thumbnails.innerHTML += `<div class="thumbnail ">
     <img src="./img/${images[i]}" alt="Immagine ${
       i + 1
     }" class="not-selected" />
@@ -41,7 +41,6 @@ const next = document.querySelector(".next");
 const allItems = document.querySelectorAll(".item");
 //seleziono tutti i thumbnail
 const allThumbnailImages = document.querySelectorAll(".thumbnail > img");
-console.log(allThumbnailImages);
 // contatore che dice quale elemento ha classe active
 let counterActive = 0;
 
@@ -79,3 +78,31 @@ next.addEventListener("click", function () {
   allThumbnailImages[counterActive].classList.add("selected");
   allThumbnailImages[counterActive].classList.remove("not-selected");
 });
+
+//seleziono la lista di thumbnail
+const allThumbnails = document.querySelectorAll(".thumbnail");
+
+//per ogni thumbnail aggiungo l'evento al click
+for (let i = 0; i < allThumbnails.length; i++) {
+  allThumbnails[i].addEventListener("click", function () {
+    //seleziono elemento img della thumbnail
+    const img = allThumbnails[i].querySelector("img");
+    //faccio qualcosa solo se l'elemento non è gia selezionato
+    if (img.classList.contains("not-selected")) {
+      //seleziono elemento img in posizione counterActive ovvero quello attivo
+      const imgSelected = allThumbnails[counterActive].querySelector("img");
+      //aggiorno la classe dell'elemento
+      imgSelected.classList.add("not-selected");
+      imgSelected.classList.remove("selected");
+      //aggiorno la classe dell'elemento su cui ho cliccato
+      img.classList.add("selected");
+      img.classList.remove("not-selected");
+      //rimuovo classe active all'item attivo prima del click
+      allItems[counterActive].classList.remove("active");
+      //aggiorno counterActive
+      counterActive = i;
+      //aggiungo classe active all'item relativo alla thumbnail su cui ho cliccato
+      allItems[counterActive].classList.add("active");
+    }
+  });
+}
