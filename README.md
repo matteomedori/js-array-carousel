@@ -73,3 +73,19 @@ Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di 
   - aggiorno il valore di counterActive
   - rimuovo all'immagine in posizione counterActive la classe not-selected
   - aggiungo all'immagine in posizione counterActive la classe selected
+
+### BONUS 3:
+
+Al click sulla thumbnail, viene visualizzata l'immagine selezionata;
+
+- seleziono la lista delle thumbnail
+- scorro la lista delle thumbnail tramite un ciclo for
+- per ogni elemento aggiungo l'evento al click
+  - salvo in una variabile l'elemento immagine contenuto nella thumbnail
+  - se l'elemento contiene la classe not-selected
+    - salvo in una variabile l'elemento immagine alla posizione counterActive(la thumbnail attiva)
+    - aggiungo la classe not-selected a questo elemento e rimuovo la classe selected
+    - aggiungo la classe selected all'elemento su cui ho cliccato e rimuovo la classe not-selected
+    - rimuovo la classe active all'elemento in posizione counterActive
+    - aggiorno counterActive dandogli l'indice dell'elemento su cui ho cliccato(quello che deve diventare attivo)
+    - aggiungo la classe active all'elemento in posizione counterActive
