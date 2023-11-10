@@ -83,3 +83,29 @@
   left: 50%;
   transform: translate(-50%) rotate(135deg);
 }
+
+.thumbnails {
+  width: 200px;
+  height: 300px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: calc(100% / 5);
+  background-color: black;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.not-selected {
+  opacity: 0.5;
+  border: none;
+}
+
+.selected {
+  border: 2px solid yellow;
+}
