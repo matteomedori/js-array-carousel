@@ -50,3 +50,26 @@ Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagin
   - altrimenti (sono sull'ultimo elemento)
     - counterActive = 0
   - aggiungo la classe active all'immagine in posizione counterActive
+
+### BONUS 2:
+
+Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
+Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
+
+- aggiungo al codice precedente una variabile per selezionare il contenitore delle thumbnails
+- modifico il ciclo che scorre l'array delle immagini
+- per ogni elemento dell'array
+  - se è il primo elemento aggiungo l'elemento thumbnail con la classe selected
+  - altrimenti aggiungo l'elemento thumbnail con la classe not-selected
+- al click di prev
+  - rimuovo all'immagine in posizione counterActive la classe selected
+  - aggiungo all'immagine in posizione counterActive la classe not-selected
+  - aggiorno il valore di counterActive
+  - rimuovo all'immagine in posizione counterActive la classe not-selected
+  - aggiungo all'immagine in posizione counterActive la classe selected
+- al click di next
+  - rimuovo all'immagine in posizione counterActive la classe selected
+  - aggiungo all'immagine in posizione counterActive la classe not-selected
+  - aggiorno il valore di counterActive
+  - rimuovo all'immagine in posizione counterActive la classe not-selected
+  - aggiungo all'immagine in posizione counterActive la classe selected
