@@ -31,3 +31,22 @@ Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, c
     - rimuove la classe active all'immagine in posizione counterActive
     - incremento la variabile counterActive
     - aggiungo la classe active all'immagine in posizione counterActive
+
+### BONUS 1:
+
+Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
+
+- aggiungo un evento sul click della freccia prev che comporta:
+  - rimuove la classe active all'immagine in posizione counterActive
+  - se counterActive è > 0(dunque non sono sulla prima immagine)
+    - decremento counterActive
+  - altrimenti (dunque counterActive è uguale a 0 e devo tornare sull'ultima immagine)
+    - counterActive diventa uguale all'indice dell'ultimo elemento della lista di item
+  - aggiungo la classe active all'immagine in posizione counterActive
+- aggiungo un evento sul click della freccia next che comporta:
+  - rimuove la classe active all'immagine in posizione counterActive
+  - se counterActive è < del numero degli elementi con classe item - 1 (non sono sull'ultimo elemento)
+    - decremento counterActive
+  - altrimenti (sono sull'ultimo elemento)
+    - counterActive = 0
+  - aggiungo la classe active all'immagine in posizione counterActive
